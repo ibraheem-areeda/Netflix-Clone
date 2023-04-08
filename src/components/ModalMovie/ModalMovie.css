@@ -1,0 +1,38 @@
+.imgeModal{
+    height: 50vh;
+    width:fit-content;
+}
+
+.body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 800px;
+}
+
+#modalText{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.modalTitle{
+    text-align: center;
+}
+
+
+ .button{
+    font-size: 16px;
+    height: 25px;
+    width:fit-content;
+    display: inline-flex;
+  }
+  
+  .ptag{
+    padding: 0;
+    margin: 0;
+}
+  
+.textarea{
+   margin-top: 30px;
+}
