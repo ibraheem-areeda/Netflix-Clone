@@ -25,10 +25,10 @@ export default function ModalMovie(props) {
           <img className='imgeModal' src={`https://image.tmdb.org/t/p/w185${props.singleMovie.poster_path}`} alt='movie' />
           <div id='modalText'>
             <div className='seeMore'>
-          <p className='ptag'>{props.singleMovie.overview.substring(0, 99)}</p>
+          <p className='ptag'>{short?props.singleMovie.overview.substring(0, 99)+" ...":props.singleMovie.overview}</p>
           <button className='button' onClick={handleshort}>{short?<p>see more</p>:<p>see less</p>}</button>
           </div>
-          <textarea className='textarea' placeholder='write your comment here ...'></textarea>
+          <textarea className='textarea' rows={5} placeholder='write your comment here ...'></textarea>
           </div>
           </Modal.Body>
           <Modal.Footer>
@@ -36,7 +36,7 @@ export default function ModalMovie(props) {
               Close
             </Button>
             <Button variant="primary" onClick={props.handleClose}>
-              Save Changes
+            add to the favorite
             </Button>
           </Modal.Footer>
         </Modal>
