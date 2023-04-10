@@ -1,7 +1,7 @@
+import { useState , useEffect} from 'react';
 import Card from 'react-bootstrap/Card'
 import './FavMovie.css';
 import Button from "react-bootstrap/Button"
-import { useState } from 'react';
 
 
 
@@ -14,33 +14,43 @@ export default function FavMovie(props) {
         setIsActive(!isActive);
     }
 
-    // async function handleDelete(id){
-    //     let url =`${process.env.REACT_APP_SERVER_URL}/deleteFavRecipe/${id}`;
+    async function handleDelete(id){
+        let url =`${process.env.REACT_APP_API_SERVER_URL}/DELETE/${id}`;
+        console.log(9999,url);
+      
 
-    //     let response = await fetch(url,{
+        let response = await fetch(url,{
 
-    //         method: "DELETE",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //     })
-  
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+           
+        })
 
-        // if(response.status === 204){
-        //     FavMovie();
-        //     alert("successfully deleted !!")
-
-        // }
-
-
-
-
-
-
-
+        console.log(8888,response);
+        
+        if(response.status === 204){
+            FavMovie();
+            alert("successfully deleted !!")
+            
+        }
+    }
 
 
-    console.log(props.singleMovie);
+
+     
+
+
+
+    useEffect(()=>{
+        FavMovie();
+
+        // console.log(favRecipes)
+
+    },[])
+
+    
     return (
         <div className='alldiv'>
 
@@ -50,12 +60,11 @@ export default function FavMovie(props) {
                 <Card.ImgOverlay className={isActive ? 'updatecss' : "overlayfav"}>
                     <Card.Title >{`${props.singleMovie.title}`}</Card.Title>
                     <Card.Text  >
-                        {/* <p>COMMENT:</p>
-                        <p>{`${props.singleMovie.comment}`}</p> */}
+                        
                         {isActive ?
                             <div ><h6>COMMENT:</h6>
                                 <textarea className='textarea'>{props.singleMovie.comment}</textarea>
-                                <Button className='unbt'  >SUBMIT</Button>
+                                <Button className='unbt'   >SUBMIT</Button>
                             </div>
                             : <div >
                                 <h6>COMMENT:</h6>
@@ -67,7 +76,7 @@ export default function FavMovie(props) {
 
             </Card>
             <div className="underbutton">
-                <Button className='unbt'  >Delete</Button> <Button className='unbt' onClick={updatehandler} >Update</Button>
+                <Button className='unbt' onClick={()=>handleDelete(props.singleMovie.id)}  >Delete</Button> <Button className='unbt' onClick={updatehandler} >Update</Button>
             </div>
 
 
@@ -81,12 +90,7 @@ export default function FavMovie(props) {
 
 
     )
-
-
-
-
-
-
-
-// }
+    
+    
+    
 }
