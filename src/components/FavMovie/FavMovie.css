@@ -72,3 +72,25 @@
     margin-bottom: 1px;
     
   }
+
+ /* Style the textarea element */
+.textarea {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  margin-top: 3px;
+  font-size: 16px;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+/* Style the textarea element when it is focused */
+.textarea:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 5px #0066cc;
+}
+
+
