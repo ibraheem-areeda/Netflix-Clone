@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
  import "../Navbar/Navbar.css"
 
 
@@ -11,8 +11,8 @@ function Header(props) {
                 <h1>MOVIES</h1>
                 <nav>
                 <ul>
-                    <li><a href= "/" >HOME</a></li>
-                    <li><a href="favorite list ">FAVORITE LIST</a></li>
+                    <li><Link to="/" >HOME</Link></li>
+                    <li><Link to="/favorite">FAVORITE LIST</Link></li>
                     <li><a href="new release">NEW RELEASE</a></li>
                     <li><a href="ATTRACTIONS">TOP RATED</a></li>
                 </ul>

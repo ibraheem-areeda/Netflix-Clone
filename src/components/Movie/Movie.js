@@ -12,7 +12,7 @@ export default function Movie(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(props.singleMovie);
+    // console.log(props.singleMovie);
     return (
         <>
          
@@ -22,6 +22,7 @@ export default function Movie(props) {
                     <Card.Title >{`${props.singleMovie.title}`}</Card.Title>
                     <Card.Text  >
                         <p>Add to Favorites</p>
+                        
                         <Button  onClick={handleShow}>Favorites</Button>
                     </Card.Text>
                 </Card.ImgOverlay>

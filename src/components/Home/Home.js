@@ -7,7 +7,7 @@ export default function Home() {
     async function getmovies() {
         const url = process.env.REACT_APP_API_SERVER_URL;
         
-
+        
         const response = await fetch(`${url}/trending`);
        
 
