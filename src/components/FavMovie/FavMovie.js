@@ -1,25 +1,25 @@
 import Card from 'react-bootstrap/Card'
 import './FavMovie.css';
 import Button from "react-bootstrap/Button"
+import { useState } from 'react';
 
 
 
 export default function FavMovie(props) {
 
     
-
-    function updatehandler() {
-       
-    //     $(Card.ImgOverlay).removeClass('selected');
-    // $(this).addClass('selected');
-
+    const [isActive, setIsActive] = useState(false);
+  
+    const updatehandler = () => {
+      setIsActive(!isActive);
     }
-    
+
+  
 
     
 
 
-
+   
 
 
 
@@ -31,7 +31,7 @@ export default function FavMovie(props) {
             <Card className="movieCard" >
             <Card.Img src={`https://image.tmdb.org/t/p/w185${props.singleMovie.poster_path}`} alt={props.singleMovie.title} />
                 
-                <Card.ImgOverlay className='overlayfav'>
+                <Card.ImgOverlay className={isActive ? 'updatecss' : "overlayfav"}>
                     <Card.Title >{`${props.singleMovie.title}`}</Card.Title>
                     <Card.Text  >
                         <p>MY COMMENT:</p>
@@ -41,7 +41,7 @@ export default function FavMovie(props) {
                 
             </Card>
             <div className="underbutton">
-            <Button className='unbt'  >Delete</Button> <Button className='unbt target' onClick={updatehandler} >Update</Button>
+            <Button className='unbt'  >Delete</Button> <Button className='unbt' onClick={updatehandler} >Update</Button>
             </div>
 
         
