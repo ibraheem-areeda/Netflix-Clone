@@ -7,6 +7,11 @@ export default function FavList() {
 
     const [movies, setfmovies] = useState([])
 
+    const [count, setCount] = useState(0);
+    const updateCount = () => {
+        setCount(count + 1);
+      };
+
 
 
 
@@ -28,10 +33,21 @@ export default function FavList() {
         console.log(5555, movies);
     }
 
+
+
+
+
+
+
+
+
+
+
+    
     useEffect(() => {
         FavData();
 
-    }, [])
+    }, [count])
 
 
     return (
@@ -41,23 +57,32 @@ export default function FavList() {
                 {
                     movies.map(singleMovie => {
                         return (
-                            <FavMovie singleMovie={singleMovie} />
+                            <FavMovie singleMovie={singleMovie} onTriggerEffect={updateCount}/>
                         )
                     })
                 }
 
+
             </div>
-
-
-
-
-
-
 
         </>
     )
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

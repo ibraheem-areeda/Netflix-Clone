@@ -1,4 +1,4 @@
-import { useState , useEffect} from 'react';
+import { useState , useRef } from 'react';
 import Card from 'react-bootstrap/Card'
 import './FavMovie.css';
 import Button from "react-bootstrap/Button"
@@ -27,30 +27,83 @@ export default function FavMovie(props) {
             },
            
         })
+        props.onTriggerEffect();
 
         console.log(8888,response);
-        
-        if(response.status === 204){
-            FavMovie();
-            alert("successfully deleted !!")
+        console.log(7777,response.status);
+
+
+
+
+        // if(response.status === 204){
             
-        }
+        //     alert("successfully deleted !!")
+            
+        // }
     }
 
+    
+    const commentRef = useRef();
+
+    function submitHandler(e){
+      
+      let comment = commentRef.current.value;
+  
+      console.log("user comment is : ",comment);
+  
+      let editedMovie={...props.singleMovie, comment}
+      console.log(editedMovie);
+      console.log(editedMovie.id);
+      // props.commentHandler(newMovie);
+      
+       handleEdit(editedMovie)
+        // addToFavHandler(newMovie);
+    
+    }
+
+   
+    async function handleEdit(editedMovie){
+        let url =`${process.env.REACT_APP_API_SERVER_URL}/UPDATE/${editedMovie.id}`;
+        let data={
+            title: editedMovie.title,
+            release_date: editedMovie.release_date,
+            poster_path : editedMovie.poster_path,
+            comment : editedMovie.comment
+          }
+          console.log(6666,url);
+          
+        let response = await fetch(url,{
+            
+
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+
+        console.log(123123,data);
+        props.onTriggerEffect();
+
+        console.log(8888,response);
+        console.log(7777,response.status);
+
+
+
+
+        // if(response.status === 204){
+            
+        //     alert("successfully deleted !!")
+            
+        // }
+    }
 
 
      
 
 
 
-    useEffect(()=>{
-        FavMovie();
-
-        // console.log(favRecipes)
-
-    },[])
-
-    
+  
     return (
         <div className='alldiv'>
 
@@ -63,8 +116,8 @@ export default function FavMovie(props) {
                         
                         {isActive ?
                             <div ><h6>COMMENT:</h6>
-                                <textarea className='textarea'>{props.singleMovie.comment}</textarea>
-                                <Button className='unbt'   >SUBMIT</Button>
+                                <textarea ref={commentRef} className='textarea'>{props.singleMovie.comment}</textarea>
+                                <Button className='unbt' onClick={submitHandler}  >SUBMIT</Button>
                             </div>
                             : <div >
                                 <h6>COMMENT:</h6>
@@ -94,3 +147,4 @@ export default function FavMovie(props) {
     
     
 }
+
