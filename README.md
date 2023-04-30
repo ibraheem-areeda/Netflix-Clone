@@ -1,8 +1,8 @@
 # Netflix-Clone
 
 ### Project Description: 
-this project is the frontend repo of the movies Library repo which contain the backend server.
-this project developed using react
+this project is the frontend repo of the movies Library repo which contain the backend server, 
+this project developed using react.
 
 ### Installation:
  1. clone the repo 
