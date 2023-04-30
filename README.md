@@ -1,11 +1,16 @@
-# Getting Started with Create React App
+# Netflix-Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project Description: 
+this project is the frontend repo of the movies Library repo which contain the backend server.
 
-## Available Scripts
+### Installation:
+ 1. clone the repo 
+ 2. `npm i`
 
-In the project directory, you can run:
 
-### `npm start`
+### Usage:
+- Web app can show the trending movies 
+- Also you can save your watch list and add comments on the movie you added. 
 
-to see it [https://main--wondrous-sundae-17ea9a.netlify.app/](https://main--wondrous-sundae-17ea9a.netlify.app/)
+### deployed version 
+[https://main--wondrous-sundae-17ea9a.netlify.app/](https://main--wondrous-sundae-17ea9a.netlify.app/)
